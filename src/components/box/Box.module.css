@@ -1,0 +1,49 @@
+.box-outer {
+    background: var(--background);
+    
+    .box-wrapper {
+        --box-scale: 8rem;
+    
+        position: relative;
+        width: var(--box-scale);
+        height: var(--box-scale);
+        background: var(--transparent);
+        transition: background .6s, color .6s;
+    
+        &:hover {
+            background: rgba(var(--accent-rgb), .1);
+        }
+
+        &.mark-circle,
+        &.mark-x {
+            font-size: calc(var(--box-scale) - 2rem);
+            background: rgba(var(--accent-rgb), .2);
+            color: var(--white);
+    
+            &::after {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                font-family: "Font Awesome 6 Free";
+            }
+    
+            &::before {
+                background: none;
+            }
+        }
+    
+        &.mark-circle {
+            &::after {
+                content: var(--mark-o);
+            }
+        }
+    
+        &.mark-x {
+            &::after {
+                content: var(--mark-x);
+            }
+        }
+    }
+}

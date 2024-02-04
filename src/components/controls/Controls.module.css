@@ -1,0 +1,9 @@
+.controls-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: .5rem 2rem;
+    background: var(--transparent);
+}

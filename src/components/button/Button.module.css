@@ -1,0 +1,10 @@
+.button-wrapper {
+    padding: .3rem .7rem;
+    background: var(--transparent);
+    color: var(--accent);
+    transition: background .3s;
+
+    &:hover {
+        background: rgba(var(--accent-rgb), .2);
+    }
+}

@@ -1,0 +1,78 @@
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    width: 100%;
+
+    .content-container {
+        --player: var(--mark-x);
+        --winner: var(--mark-x);
+        --duration: 1.2s;
+
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: .2rem;
+        background-image: linear-gradient(var(--accent), var(--accent));
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 0% 0%;
+        outline: 2px solid rgba(var(--accent-rgb), .1);
+        animation: var(--duration) ease-in-out .3s forwards grow-background;
+
+        &[winner="false"] {
+            --winner: var(--mark-o);
+        }
+
+        &[player="false"] {
+            --player: var(--mark-o);
+        }
+
+        &[iswinner="true"]::before,
+        &[isend="true"]::before,
+        &::after {
+            position: absolute;
+            top: 0;
+            transform: translateY(-120%);
+            width: 100%;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        &[iswinner="true"]::before {
+            content: "Winner player " var(--winner);
+        }
+
+        &[isend="true"]::before {
+            content: "No winners - tie";
+        }
+
+        &:not([iswinner="true"], [isend="true"])::after {
+            content: var(--player) " turn";
+            top: initial;
+            bottom: 0;
+            transform: translateY(120%);
+            opacity: 0;
+            animation: var(--duration) ease-in-out .8s forwards fade-in;
+        }
+    }
+}
+
+@keyframes grow-background {
+    0% {
+        background-size: 0% 0%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
