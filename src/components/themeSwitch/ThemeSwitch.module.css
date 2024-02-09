@@ -1,0 +1,47 @@
+.theme-switch-wrapper {
+    position: relative;
+
+    .theme-switch-content {
+        position: absolute;
+        top: 0;
+        display: none;
+
+        .candy-red {
+            color: var(--candy-red);
+
+            &:hover {
+                background: rgba(var(--candy-red-rgb), .2);;
+            }
+        }
+
+        .emerald-green {
+            color: var(--emerald-green);
+
+            &:hover {
+                background: rgba(var(--emerald-green-rgb), .2);;
+            }
+        }
+
+        .sapphire-blue {
+            color: var(--sapphire-blue);
+
+            &:hover {
+                background: rgba(var(--sapphire-blue-rgb), .2);;
+            }
+        }
+
+        .orange {
+            color: var(--orange);
+
+            &:hover {
+                background: rgba(var(--orange-rgb), .2);;
+            }
+        }
+    }
+
+    &:hover {
+        .theme-switch-content {
+            display: block;
+        }
+    }
+}

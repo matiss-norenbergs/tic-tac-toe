@@ -3,6 +3,7 @@ import { useCallback } from "react"
 
 import Button from "../button/Button"
 import MNIcon from "../mnIcon/MNIcon"
+import ThemeSwitch from "../themeSwitch"
 
 import styles from "./Controls.module.css"
 
@@ -20,10 +21,14 @@ const Controls = ({ onControlClick }) => {
         <div className={styles["controls-wrapper"]}>
             <MNIcon />
             <div className={styles["controls-container"]}>
-                <Button onClick={onClick("reset")}>
+                <Button
+                    onClick={onClick("reset")}
+                    faIcon="rotate-right"
+                >
                     Reset
                 </Button>
             </div>
+            <ThemeSwitch />
         </div>
     )
 }

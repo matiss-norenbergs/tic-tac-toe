@@ -1,3 +1,9 @@
+const appName = "MN-TIC-TAC-TOE"
+
+const localStorageConstants = {
+    selectedTheme: `${appName}-THEME`
+}
+
 const initBoxState = {
     1: undefined,
     2: undefined,
@@ -21,7 +27,28 @@ const winScenarios = [
     [3, 5, 7]
 ]
 
+const themeColors = {
+    "candy-red": {
+        "color": "--candy-red",
+        "colorRgb": "--candy-red-rgb"
+    },
+    "emerald-green": {
+        "color": "--emerald-green",
+        "colorRgb": "--emerald-green-rgb"
+    },
+    "sapphire-blue": {
+        "color": "--sapphire-blue",
+        "colorRgb": "--sapphire-blue-rgb"
+    },
+    "orange": {
+        "color": "--orange",
+        "colorRgb": "--orange-rgb"
+    }
+}
+
 export {
+    localStorageConstants,
     initBoxState,
-    winScenarios
+    winScenarios,
+    themeColors
 }

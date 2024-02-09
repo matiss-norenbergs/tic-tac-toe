@@ -4,8 +4,14 @@
     --white: #fff;
     --dark-gray: #141414;
     --transparent: rgba(0, 0, 0, 0.2);
-    --accent: rgb(165, 5, 66);
-    --accent-rgb: 165, 5, 66;
+    --candy-red: rgb(165, 5, 66);
+    --candy-red-rgb: 165, 5, 66;
+    --emerald-green: rgb(5, 135, 67);
+    --emerald-green-rgb: 5, 135, 67;
+    --sapphire-blue: rgb(15, 82, 186);
+    --sapphire-blue-rgb: 15, 82, 186;
+    --orange: rgb(255, 115, 0);
+    --orange-rgb: 255, 115, 0;
 
     --mark-x: 'x';
     --mark-o: 'o';
@@ -14,6 +20,8 @@
 
     --background: var(--dark-gray);
     --color: var(--white);
+    --accent: var(--candy-red);
+    --accent-rgb: var(--candy-red-rgb);
 }
 
 * {
