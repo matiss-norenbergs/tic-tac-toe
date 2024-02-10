@@ -1,10 +1,27 @@
 .button-wrapper {
-    padding: .3rem .7rem;
+    padding: .5rem .7rem;
     background: var(--transparent);
     color: var(--accent);
     transition: background .3s;
+    border-radius: var(--border-radius);
 
     &:hover {
         background: rgba(var(--accent-rgb), .2);
+    }
+}
+
+.button-group-wapper {
+    display: flex;
+
+    .button-wrapper {
+        border-radius: 0;
+
+        &:first-child {
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+
+        &:last-child {
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
     }
 }

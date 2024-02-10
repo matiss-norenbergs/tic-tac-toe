@@ -18,7 +18,7 @@
         &.mark-x {
             font-size: calc(var(--box-scale) - 2rem);
             background: rgba(var(--accent-rgb), .2);
-            color: var(--white);
+            color: var(--color);
     
             &::after {
                 display: flex;

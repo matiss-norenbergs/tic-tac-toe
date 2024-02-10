@@ -1,0 +1,5 @@
+.fa-icon-wrapper {
+    &.fa-icon-padded {
+        margin-right: 5px;
+    }
+}

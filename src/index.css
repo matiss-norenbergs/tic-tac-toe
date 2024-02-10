@@ -2,18 +2,30 @@
 
 :root {
     --white: #fff;
+    --light-gray: #ddd;
     --dark-gray: #141414;
+    --ligher-gray: #252525;
     --transparent: rgba(0, 0, 0, 0.2);
-    --accent: rgb(165, 5, 66);
-    --accent-rgb: 165, 5, 66;
+    --candy-red: rgb(165, 5, 66);
+    --candy-red-rgb: 165, 5, 66;
+    --emerald-green: rgb(5, 135, 67);
+    --emerald-green-rgb: 5, 135, 67;
+    --sapphire-blue: rgb(15, 82, 186);
+    --sapphire-blue-rgb: 15, 82, 186;
+    --orange: rgb(255, 115, 0);
+    --orange-rgb: 255, 115, 0;
 
     --mark-x: 'x';
     --mark-o: 'o';
 
     --font-family: 'Bruno Ace SC', sans-serif;
+    --border-radius: 5px;
 
     --background: var(--dark-gray);
+    --background-2: var(--ligher-gray);
     --color: var(--white);
+    --accent: var(--candy-red);
+    --accent-rgb: var(--candy-red-rgb);
 }
 
 * {
@@ -27,6 +39,11 @@
 }
 
 body {
-    background: var(--background);
+    --circle-color: rgba(var(--accent-rgb), .8);
+    --circle-size: 60px;
+
+    background: var(--background-2);
     color: var(--color);
+    background-image: radial-gradient(circle at center center, var(--circle-color), var(--background-2)), repeating-radial-gradient(circle at center center, var(--circle-color), var(--circle-color), 10px, transparent var(--circle-size), transparent calc(var(--circle-size) * 2));
+    background-blend-mode: multiply;
 }
