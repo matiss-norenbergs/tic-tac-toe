@@ -42,6 +42,7 @@ const Button = ({
                 <FaIcon
                     icon={faIcon}
                     padded={!!children}
+                    fixedWidth
                 />
             )}
             {children}
@@ -50,5 +51,14 @@ const Button = ({
 }
 Button.propTypes = propTypes
 Button.defaultProps = defaultProps
+
+const Group = ({ children }) => {
+    return (
+        <div className={styles["button-group-wapper"]}>
+            {children}
+        </div>
+    )
+}
+Button.Group = Group
 
 export default Button

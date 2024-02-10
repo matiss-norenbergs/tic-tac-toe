@@ -6,6 +6,38 @@
         top: 0;
         display: none;
 
+        .candy-red,
+        .emerald-green,
+        .sapphire-blue,
+        .orange {
+            position: relative;
+            border-radius: 0;
+
+            &:first-child {
+                border-top-right-radius: var(--border-radius);
+            }
+
+            &:last-child {
+                border-bottom-right-radius: var(--border-radius);
+            }
+
+            &:hover::after {
+                content: attr(label);
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                transform: translateX(-100%);
+                display: flex;
+                align-items: center;
+                text-wrap: nowrap;
+                padding: 0 .5rem;
+                border-radius: var(--border-radius) 0 0 var(--border-radius);
+                background: inherit;
+                opacity: 1;
+            }
+        }
+
         .candy-red {
             color: var(--candy-red);
 

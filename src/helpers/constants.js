@@ -1,7 +1,8 @@
 const appName = "MN-TIC-TAC-TOE"
 
 const localStorageConstants = {
-    selectedTheme: `${appName}-THEME`
+    isLightTheme: `${appName}-LIGHT-THEME`,
+    selectedThemeColor: `${appName}-THEME-COLOR`
 }
 
 const initBoxState = {
@@ -27,22 +28,39 @@ const winScenarios = [
     [3, 5, 7]
 ]
 
-const themeColors = {
+const themeAccentColors = {
     "candy-red": {
-        "color": "--candy-red",
-        "colorRgb": "--candy-red-rgb"
+        color: "--candy-red",
+        colorRgb: "--candy-red-rgb",
+        label: "Candy red"
     },
     "emerald-green": {
-        "color": "--emerald-green",
-        "colorRgb": "--emerald-green-rgb"
+        color: "--emerald-green",
+        colorRgb: "--emerald-green-rgb",
+        label: "Emerald green"
     },
     "sapphire-blue": {
-        "color": "--sapphire-blue",
-        "colorRgb": "--sapphire-blue-rgb"
+        color: "--sapphire-blue",
+        colorRgb: "--sapphire-blue-rgb",
+        label: "Sapphire blue"
     },
     "orange": {
-        "color": "--orange",
-        "colorRgb": "--orange-rgb"
+        color: "--orange",
+        colorRgb: "--orange-rgb",
+        label: "Orange"
+    }
+}
+
+const themeColors = {
+    true: {
+        "background": "--dark-gray",
+        "background2": "--ligher-gray",
+        "color": "--white"
+    },
+    false: {
+        "background": "--white",
+        "background2": "--light-gray",
+        "color": "--dark-gray"
     }
 }
 
@@ -50,5 +68,6 @@ export {
     localStorageConstants,
     initBoxState,
     winScenarios,
+    themeAccentColors,
     themeColors
 }
