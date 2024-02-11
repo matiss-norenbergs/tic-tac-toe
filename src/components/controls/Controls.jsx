@@ -1,8 +1,8 @@
 import PropTypes from "prop-types"
 import { useCallback } from "react"
 
-import Button from "../button"
-import MNIcon from "../mnIcon"
+import Button from "../button/Button"
+import MNIcon from "../mnIcon/MNIcon"
 import ThemeSwitch from "../themeSwitch"
 
 import styles from "./Controls.module.css"
