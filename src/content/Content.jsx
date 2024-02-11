@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react"
 
-import { initBoxState } from "../helpers/constants"
-import { checkIsWinner } from "../helpers/basicHelper"
+import { initBoxState } from "helpers/constants"
+import { checkIsWinner } from "helpers/basicHelper"
 
-import Box from "../components/box"
-import Controls from "../components/controls"
+import Box from "components/box"
+import Controls from "components/controls"
 
 import styles from "./Content.module.css"
 
