@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 
-import { localStorageConstants, themeAccentColors, themeColors } from "../../helpers/constants"
-import { getStyleProperty, setStyleProperty } from "../../helpers/styleHelper"
+import { localStorageConstants, themeAccentColors, themeColors } from "helpers/constants"
+import { getStyleProperty, setStyleProperty } from "lib/helpers/domStyleHelper"
 
 import Button from "../button"
 

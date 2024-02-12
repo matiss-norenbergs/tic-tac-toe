@@ -1,70 +1,105 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
-import { initBoxState } from "../helpers/constants"
-import { checkIsWinner } from "../helpers/basicHelper"
+import { initGameState } from "helpers/constants"
+import { isGameOver, getAutoTurn, getEmptyBoxes } from "helpers/basicHelper"
 
-import Box from "../components/box"
-import Controls from "../components/controls"
+import Box from "components/box"
+import Controls from "components/controls"
 
 import styles from "./Content.module.css"
 
 const Content = () => {
-    const [player, setPlayer] = useState(true)
     const [isWinner, setIsWinner] = useState(false)
     const [isEnd, setIsEnd] = useState(false)
-    const [boxes, setBoxes] = useState(initBoxState)
+    const [gameState, setGameState] = useState(initGameState)
+    const [autoGame, setAutoGame] = useState(true)
 
     const handleControlCallback = useCallback((action) => {
         switch (action) {
             case "reset":
-                setPlayer(true)
                 setIsWinner(false)
                 setIsEnd(false)
-                setBoxes(initBoxState)
+                setGameState({
+                    boxState: [
+                        [undefined, undefined, undefined],
+                        [undefined, undefined, undefined],
+                        [undefined, undefined, undefined]
+                    ],
+                    player: true
+                })
+                break
+            case "auto":
+                setAutoGame(prevState => !prevState)
                 break
             default:
                 return
         }
     }, [])
 
+    const handleBoxSelected = useCallback((boxCoord) => {
+        setGameState(prevState => {
+            const newGameState = Object.assign({}, prevState)
+
+            newGameState.boxState[boxCoord[0]][boxCoord[1]] = prevState.player
+            newGameState.player = !prevState.player
+
+            return newGameState
+        })
+    }, [])
+
     const handleBoxClick = useCallback(({ target: { id } }) => {
-        if (isWinner || isEnd || typeof boxes[id] == "boolean")
+        if (isEnd || isWinner)
             return
 
-        setBoxes(prevState => {
-            const newState = Object.assign({}, prevState)
-            newState[id] = player
-            
-            const { isWinner, isEnd } = checkIsWinner(newState, player)
-            if (isWinner)
-                setIsWinner(true)
-            else if (isEnd)
+        const boxCoord = JSON.parse(id)
+
+        handleBoxSelected(boxCoord)
+    }, [isEnd, isWinner, handleBoxSelected])
+
+    useEffect(() => {
+        const { boxState, player } = gameState
+
+        const noEmptyBoxes = getEmptyBoxes(boxState).length === 0
+        const gameOver = isGameOver(boxState)
+
+        if (gameOver || noEmptyBoxes) {
+            if (noEmptyBoxes)
                 setIsEnd(true)
-            
-            return newState
-        })
-        setPlayer(prevState => !prevState)
-    }, [boxes, player, isWinner, isEnd])
+
+            if (gameOver)
+                setIsWinner(true)
+
+            return
+        } else if (autoGame) {
+            if (!gameState.player) {
+                const { x, y } = getAutoTurn(boxState, player)
+                handleBoxSelected([x, y])
+            }
+        }
+    }, [autoGame, gameState, handleBoxSelected])
 
     return (
         <>
-            <Controls onControlClick={handleControlCallback} />
+            <Controls
+                onControlClick={handleControlCallback}
+                auto={autoGame}
+            />
             <main className={styles["content-wrapper"]}>
                 <div
                     className={styles["content-container"]}
                     iswinner={String(isWinner)}
                     isend={String(isEnd)}
-                    player={String(player)}
-                    winner={String(!player)}
+                    player={String(gameState.player)}
+                    winner={String(!gameState.player)}
                 >
-                    {Object.keys(boxes).map(key => (
+                    {gameState.boxState.map((row, rIndex) => row.map((col, cIndex) => (
                         <Box
-                            key={key}
-                            id={key}
-                            ticked={boxes[key]}
+                            key={rIndex + cIndex}
+                            id={JSON.stringify([rIndex, cIndex])}
+                            ticked={col}
                             onClick={handleBoxClick}
                         />
-                    ))}
+                    )))}
                 </div>
             </main>
         </>
