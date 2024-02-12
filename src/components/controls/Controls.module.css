@@ -6,4 +6,9 @@
     width: 100%;
     padding: .5rem 2rem;
     background: var(--transparent);
+
+    .controls-container {
+        display: flex;
+        gap: 1rem;
+    }
 }

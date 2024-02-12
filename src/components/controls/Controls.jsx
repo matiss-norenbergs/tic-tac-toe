@@ -8,11 +8,16 @@ import ThemeSwitch from "../themeSwitch"
 import styles from "./Controls.module.css"
 
 const propTypes = {
-    onControlClick: PropTypes.func.isRequired
+    onControlClick: PropTypes.func.isRequired,
+    auto: PropTypes.bool
 }
 const defaultProps = {}
 
-const Controls = ({ onControlClick }) => {
+const Controls = ({
+    onControlClick,
+    auto
+}) => {
+
     const onClick = useCallback((action) => () => {
         onControlClick(action)
     }, [onControlClick])
@@ -26,6 +31,13 @@ const Controls = ({ onControlClick }) => {
                     faIcon="rotate-right"
                 >
                     Reset
+                </Button>
+                <Button
+                    onClick={onClick("auto")}
+                    faIcon="robot"
+                    active={auto}
+                >
+                    Auto
                 </Button>
             </div>
             <ThemeSwitch />
