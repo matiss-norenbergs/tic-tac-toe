@@ -4,7 +4,7 @@
     --white: #fff;
     --light-gray: #ddd;
     --dark-gray: #141414;
-    --ligher-gray: #2b2b2b;
+    --ligher-gray: #363636;
     --transparent: rgba(0, 0, 0, 0.2);
     --candy-red: rgb(165, 5, 66);
     --candy-red-rgb: 165, 5, 66;
@@ -17,6 +17,7 @@
 
     --mark-x: 'x';
     --mark-o: 'o';
+    --mark-font: "Font Awesome 6 Free";
 
     --font-family: 'Bruno Ace SC', sans-serif;
     --border-radius: 5px;
