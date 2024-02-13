@@ -55,26 +55,23 @@ const ThemeSwitch = () => {
     }, [handleThemeAccentSwitch, handleThemeColorSwitch])
 
     return (
-        <Button.Group>
-            <div className={styles["theme-switch-wrapper"]}>
-                <Button faIcon="cog" />
-                <div className={styles["theme-switch-content"]}>
-                    {Object.keys(themeAccentColors).map(color => (
-                        <Button
-                            key={color}
-                            className={styles[color]}
-                            faIcon="circle"
-                            onClick={handleThemeAccentSwitch(color)}
-                            label={themeAccentColors[color].label}
-                        />
-                    ))}
-                </div>
+        <div className={styles["theme-switch-wrapper"]}>
+            <Button
+                className={styles["theme-switch-button"]}
+                faIcon="cog"
+            />
+            <div className={styles["theme-switch-content"]}>
+                {Object.keys(themeAccentColors).map(color => (
+                    <Button
+                        key={color}
+                        className={styles[color]}
+                        faIcon="circle"
+                        onClick={handleThemeAccentSwitch(color)}
+                        label={themeAccentColors[color].label}
+                    />
+                ))}
             </div>
-            {/* <Button
-                faIcon={isDarkThemeActive ? "sun" : "moon"}
-                onClick={handleThemeColorSwitch}
-            /> */}
-        </Button.Group>
+        </div>
     )
 }
 

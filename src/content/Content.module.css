@@ -56,6 +56,16 @@
             opacity: 0;
             animation: var(--duration) ease-in-out .8s forwards fade-in;
         }
+
+        @media (max-height: 500px) {
+            &[iswinner="true"]::before,
+            &[isend="true"]::before,
+            &::after {
+                bottom: 0;
+                transform: translate(-100%, 50%);
+                font-size: 1.2rem;
+            }
+        }
     }
 }
 

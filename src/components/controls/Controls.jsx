@@ -27,17 +27,17 @@ const Controls = ({
             <MNIcon />
             <div className={styles["controls-container"]}>
                 <Button
-                    onClick={onClick("reset")}
-                    faIcon="rotate-right"
-                >
-                    Reset
-                </Button>
-                <Button
                     onClick={onClick("auto")}
                     faIcon="robot"
                     active={auto}
                 >
                     Auto
+                </Button>
+                <Button
+                    onClick={onClick("reset")}
+                    faIcon="rotate-right"
+                >
+                    Reset
                 </Button>
             </div>
             <ThemeSwitch />

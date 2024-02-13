@@ -12,6 +12,7 @@
         .orange {
             position: relative;
             border-radius: 0;
+            outline: none;
 
             &:first-child {
                 border-top-right-radius: var(--border-radius);
@@ -19,6 +20,11 @@
 
             &:last-child {
                 border-bottom-right-radius: var(--border-radius);
+            }
+
+            &:active {
+                outline: none;
+                box-shadow: none;
             }
 
             &:hover::after {
@@ -74,6 +80,10 @@
     &:hover {
         .theme-switch-content {
             display: block;
+        }
+
+        .theme-switch-button {
+            outline: none;
         }
     }
 }
