@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("/public/assets/fontawesome/webfonts/fa-regular-400.woff2") format("woff2"), url("/public/assets/fontawesome/webfonts/fa-regular-400.ttf") format("truetype");
+}
+
 :root {
     --white: #fff;
     --light-gray: #ddd;
