@@ -8,11 +8,16 @@ import ThemeSwitch from "../themeSwitch"
 import styles from "./Controls.module.css"
 
 const propTypes = {
-    onControlClick: PropTypes.func.isRequired
+    onControlClick: PropTypes.func.isRequired,
+    auto: PropTypes.bool
 }
 const defaultProps = {}
 
-const Controls = ({ onControlClick }) => {
+const Controls = ({
+    onControlClick,
+    auto
+}) => {
+
     const onClick = useCallback((action) => () => {
         onControlClick(action)
     }, [onControlClick])
@@ -21,6 +26,13 @@ const Controls = ({ onControlClick }) => {
         <div className={styles["controls-wrapper"]}>
             <MNIcon />
             <div className={styles["controls-container"]}>
+                <Button
+                    onClick={onClick("auto")}
+                    faIcon="robot"
+                    active={auto}
+                >
+                    Auto
+                </Button>
                 <Button
                     onClick={onClick("reset")}
                     faIcon="rotate-right"

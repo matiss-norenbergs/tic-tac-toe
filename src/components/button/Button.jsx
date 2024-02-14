@@ -12,7 +12,8 @@ const propTypes = {
     faIcon: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string)
-    ])
+    ]),
+    active: PropTypes.bool
 }
 const defaultProps = {}
 
@@ -21,13 +22,15 @@ const Button = ({
     className,
     disabled,
     faIcon,
+    active,
     ...rest
 }) => {
 
     const buttonClassName = classNames(
         styles["button-wrapper"],
         {
-            [styles["button-disabled"]]: disabled
+            [styles["button-disabled"]]: disabled,
+            [styles["button-active"]]: active
         },
         className
     )
