@@ -1,8 +1,7 @@
 const appName = "MN-TIC-TAC-TOE"
 
 const localStorageConstants = {
-    isLightTheme: `${appName}-LIGHT-THEME`,
-    selectedThemeColor: `${appName}-THEME-COLOR`
+    themeColor: `${appName}-THEME-COLOR`
 }
 
 const initGameState = {
@@ -37,22 +36,8 @@ const themeAccentColors = {
     }
 }
 
-const themeColors = {
-    true: {
-        "background": "--dark-gray",
-        "background2": "--ligher-gray",
-        "color": "--white"
-    },
-    false: {
-        "background": "--white",
-        "background2": "--light-gray",
-        "color": "--dark-gray"
-    }
-}
-
 export {
     localStorageConstants,
     initGameState,
-    themeAccentColors,
-    themeColors
+    themeAccentColors
 }
