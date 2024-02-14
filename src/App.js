@@ -1,9 +1,9 @@
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faCircle, faCog, faMoon, faRotateRight, faSun, faRobot } from "@fortawesome/free-solid-svg-icons"
+import { faCircle, faCog, faRotateRight, faRobot } from "@fortawesome/free-solid-svg-icons"
 
 import Content from "./content"
 
-library.add(faCircle, faCog, faMoon, faRotateRight, faSun, faRobot)
+library.add(faCircle, faCog, faRotateRight, faRobot)
 
 const App = () => (
     <Content />

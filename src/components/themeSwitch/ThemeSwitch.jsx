@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect } from "react"
 
-import { localStorageConstants, themeAccentColors, themeColors } from "helpers/constants"
+import { localStorageConstants, themeAccentColors } from "helpers/constants"
 import { getStyleProperty, setStyleProperty } from "lib/helpers/domStyleHelper"
 
 import Button from "../button"
@@ -8,8 +8,6 @@ import Button from "../button"
 import styles from "./ThemeSwitch.module.css"
 
 const ThemeSwitch = () => {
-
-    const [isDarkThemeActive, setIsDarkThemeActive] = useState(true)
 
     const handleThemeAccentSwitch = useCallback((selectedThemeColor) => () => {
         if (!selectedThemeColor)
@@ -22,37 +20,12 @@ const ThemeSwitch = () => {
         setStyleProperty("--accent", prop1)
         setStyleProperty("--accent-rgb", prop2)
 
-        localStorage.setItem(localStorageConstants.selectedThemeColor, selectedThemeColor)
-    }, [])
-
-    const handleThemeColorSwitch = useCallback(() => {
-        setIsDarkThemeActive(prevState => {
-            const isDarkTheme = !prevState
-            const { background, background2, color } = themeColors[isDarkTheme]
-            const prop1 = getStyleProperty(background)
-            const prop2 = getStyleProperty(background2)
-            const prop3 = getStyleProperty(color)
-
-            setStyleProperty("--background", prop1)
-            setStyleProperty("--background-2", prop2)
-            setStyleProperty("--color", prop3)
-
-            if (!isDarkTheme)
-                localStorage.setItem(localStorageConstants.isLightTheme, false)
-            else
-                localStorage.removeItem(localStorageConstants.isLightTheme)
-
-            return isDarkTheme
-        })
+        localStorage.setItem(localStorageConstants.themeColor, selectedThemeColor)
     }, [])
 
     useEffect(() => {
-        handleThemeAccentSwitch(localStorage.getItem(localStorageConstants.selectedThemeColor))()
-
-        if (localStorage.getItem(localStorageConstants.isLightTheme))
-            handleThemeColorSwitch()
-
-    }, [handleThemeAccentSwitch, handleThemeColorSwitch])
+        handleThemeAccentSwitch(localStorage.getItem(localStorageConstants.themeColor))()
+    }, [handleThemeAccentSwitch])
 
     return (
         <div className={styles["theme-switch-wrapper"]}>
